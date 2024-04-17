@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">1.Create Poll:</span>
+            <input type="text" id="create_poll_input_user_id" placeholder="user_id">
+            <input type="text" id="create_poll_input_poll_id" placeholder="poll_id">
+            <input type="text" id="create_poll_input_question" placeholder="Question">
+            <div class="options">
+                <input type="text" id="create_poll_input_option1" placeholder="Option1">
+                <input type="text" id="create_poll_input_option2" placeholder="Option1">
+                <input type="text" id="create_poll_input_option3" placeholder="Option1">
+                <input type="text" id="create_poll_input_option4" placeholder="Option1">
+            <div class="option_ids">
+                <input type="text" id="create_poll_input_option_id1" placeholder="Option_id1">
+                <input type="text" id="create_poll_input_option_id2" placeholder="Option_id1">
+                <input type="text" id="create_poll_input_option_id3" placeholder="Option_id1">
+                <input type="text" id="create_poll_input_option_id4" placeholder="Option_id1">
+            </div>
+            <input type="text" id="create_poll_input_tag" placeholder="tag">
+            <input type="date" id="create_poll_input_created_date" placeholder="Enter a date">
+            <input type="time" id="create_poll_input_created_time" placeholder="Enter a time">
+            <button type="submit" onclick="Create_Poll()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">2.Create Channel:</span>
+            <input type="text" id="create_channel_input_user_id" placeholder="user_id">
+            <input type="text" id="create_channel_input_channel_name" placeholder="channel name">
+            <input type="text" id="create_channel_input_channel_id" placeholder="channel_id">
+            <button type="submit" onclick="Create_Channel()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">3.Create profile:</span>
+            <input type="text" id="create_profile_input_user_id" placeholder="user_id">
+            <input type="text" id="create_profile_input_username" placeholder="username">
+            <input type="text" id="create_profile_input_photoURL" placeholder="photoURL">
+            <input type="text" id="create_profile_input_aboutMe" placeholder="aboutMe">
+            <button type="submit" onclick="Create_Profile()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">4.Upvote:</span>
+            <input type="text" id="upvote_input_poll_id" placeholder="poll_id">
+            <button type="submit" onclick="UpVote()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">5.DownVote:</span>
+            <input type="text" id="downvote_input_poll_id" placeholder="poll_id">
+            <button type="submit" onclick="DownVote()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">6.Comment Submit</span>
+            <input type="text" id="Comment_input_user_id" placeholder="user_id">
+            <input type="text" id="Comment_input_poll_id" placeholder="poll_id">
+            <input type="text" id="Comment_input_comment_id" placeholder="comment_id">
+            <input type="text" id="Comment_input_comment" placeholder="comment">
+            <button type="submit" onclick="Comment()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">7.Edit Profile Done</span>
+            
+            <input type="text" id="Edit_Profile_input_user_id" placeholder="user_id">
+            <input type="text" id="Edit_Profile_input_username" placeholder="username">
+            <div class="ratio">
+                <input type="radio" id="visibility_public" name="visibility" value="true">
+                <label for="public">Public</label><br>
+                <input type="radio" id="visibility_private" name="visibility" value="false">
+                <label for="private">Private</label><br>
+            </div>
+            
+
+            <input type="text" id="Edit_Profile_input_photoURL" placeholder="photoURL">
+            <input type="text" id="Edit_Profile_input_aboutMe" placeholder="aboutMe">
+            <button type="submit" onclick="Edit_Profile()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">8.Follow</span>
+            <input type="text" id="Follow_input_user_id1" placeholder="user_id">
+            <input type="text" id="Follow_input_user_id2" placeholder="user_id">
+            <button type="submit" onclick="Follow()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">9.Poll/Sway</span>
+            <input type="text" id="sway_input_poll_id" placeholder="poll_id">
+            <input type="text" id="sway_input_option_id" placeholder="option_id">
+            <button type="submit" onclick="Sway()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">10.Subsribe Channel</span>
+            <input type="text" id="subscribe_channel_input_user_id" placeholder="channel_id">
+            <input type="text" id="subscribe_channel_input_channel_id" placeholder="channel_id">
+            <button type="submit" onclick="Subsribe_Channel()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">11.Comment Like</span>
+            <input type="text" id="Comment_Like_input_channel_id" placeholder="comment_id">
+            <input type="text" id="Comment_Like_input_user_id"  placeholder="user_id">
+            <button type="submit" onclick="Comment_Like()">Submit</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-row">
+            <span class="serial-number">12.Comment Dislike</span>
+            <input type="text" id="Comment_Dislike_input_channel_id" placeholder="comment_id">
+            <input type="text" id="Comment_Dislike_input_user_id"  placeholder="user_id">
+            <button type="submit" onclick="Comment_Dislike()">Submit</button>
+        </div>
+    </div>
+
+
+    <!-- <div class="container2 ">
+        <div class="input-section">
+            <h4>1.My account[Followers]</h4>
+            <input type="text" placeholder="user_id">
+            <button onclick="My_account_Followers()">Submit</button>
+        </div>
+        <div class="output-section">
+            <h2>Output Section</h2>
+            [Username]<div id="My_account_Followers1"></div>
+            [Photo_URL]<div id="My_account_Followers2"></div>
+        </div>
+    </div>
+    <div class="container2 ">
+        <div class="input-section">
+            <h4>2.My account[Followings]</h4>
+            <input type="text" placeholder="user_id">
+            <button onclick="My_account_Followings()">Submit</button>
+        </div>
+        <div class="output-section">
+            <h2>Output Section</h2>
+            [Username]<div id="My_account_Followings1"></div>
+            [Photo_URL]<div id="My_account_Followings2"></div>
+        </div>
+    </div> -->
+    <div class="container2 ">
+        <div class="input-section">
+            <h4>3.Tap on username</h4>
+            <input type="text" id="profile_input" placeholder="user_id">
+            <button onclick="Profile()">Submit</button>
+        </div>
+        <div class="output-section">
+            <h2>Output Section</h2>
+            [Username]<div id="profile_response_username"></div>
+            [Photo_URL]<div id="profile_response_photoURL"></div>
+            [About]<div id="profile_response_about"></div>
+        </div>
+    </div>
+    <!-- <div class="container2 ">
+        <div class="input-section">
+            <h4>4.My account[Feed]</h4>
+            <input type="text" placeholder="user_id">
+            <button onclick="My_account_Feed()">Submit</button>
+        </div>
+        <div class="output-section">
+            <h2>Output Section</h2>
+            [Under Development]<div id="My_account_Feed1"></div>
+        </div>
+    </div>
+    <div class="container2 ">
+        <div class="input-section">
+            <h4>5.Tap on channel name</h4>
+            <input type="text" placeholder="channel_id">
+            <button onclick="Click_on_Channel()">Submit</button>
+        </div>
+        <div class="output-section">
+            <h2>Output Section</h2>
+            [Under Development]<div id="Click_on_Channel1"></div>
+        </div>
+    </div>
+    <div class="container2 ">
+        <div class="input-section">
+            <h4>6.Channels</h4>
+            <input type="text" placeholder="user_id">
+            <button onclick="Channels()">Submit</button>
+        </div>
+        <div class="output-section">
+            <h2>Output Section</h2>
+            [Under Development]<div id="Channels1"></div>
+        </div>
+    </div>
+    <div class="container2 ">
+        <div class="input-section">
+            <h4>7.Comment Section</h4>
+            <input type="text" placeholder="user_id">
+            <button onclick="Comment_Section()">Submit</button>
+        </div>
+        <div class="output-section">
+            <h2>Output Section</h2>
+            [Under Development]<div id="Comment_Section1"></div>
+        </div>
+    </div> -->
+    <script src="script.js"></script>
+</body>
+</html>

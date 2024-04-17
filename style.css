@@ -1,0 +1,101 @@
+/* Update: */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+}
+
+.serial-number {
+    width: 80px;
+    text-align: center;
+    margin-right: 10px;
+}
+.ratio{
+    padding: 30px;
+}
+input[type="number"],
+input[type="time"], 
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Responce:  */
+
+.container2 {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-section,
+.output-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 10px;
+    flex: 1; /* Distribute space evenly */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.input-section h2,
+.output-section h2 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Add space between heading and inputs */
+}
+
+.input-section input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-section button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.input-section button:hover {
+    background-color: #0056b3;
+}
+
+.output-section div {
+    margin-bottom: 10px;
+}
