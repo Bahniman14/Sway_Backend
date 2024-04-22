@@ -2,7 +2,24 @@
 CREATE TABLE user_table (
     user_id TEXT PRIMARY KEY,
     username TEXT,
-    isSubscribed INTEGER, -- 0 or 1 for boolean value
+    -- isSubscribed INTEGER, -- 0 or 1 for boolean value
+    channels_created TEXT REFERENCES channel_table(channel_id), -- Comma-separated text containing channel_ids
+    channel_subscribed TEXT, -- Comma-separated text containing subscribed channel_ids
+    polls TEXT REFERENCES poll_table(poll_id), -- Comma-separated text containing created poll_ids
+    followers TEXT, -- Comma-separated text containing user_ids of followers
+    followings TEXT, -- Comma-separated text containing user_ids of users being followed
+    photoURL TEXT,
+    -- subscription_data TEXT,
+    about_me TEXT,
+    visibility INTEGER, -- 0 or 1 for boolean value
+    score INTEGER Default 0
+);
+
+CREATE TABLE organization_table(
+    organization_id TEXT PRIMARY KEY,
+    organization_name TEXT,
+    organization_type TEXT,
+    org_location TEXT,
     channels_created TEXT REFERENCES channel_table(channel_id), -- Comma-separated text containing channel_ids
     channel_subscribed TEXT, -- Comma-separated text containing subscribed channel_ids
     polls TEXT REFERENCES poll_table(poll_id), -- Comma-separated text containing created poll_ids
@@ -11,9 +28,7 @@ CREATE TABLE user_table (
     photoURL TEXT,
     subscription_data TEXT,
     about_me TEXT,
-    visibility INTEGER, -- 0 or 1 for boolean value
-    score INTEGER Default 0
-);
+)
 
 -- Create channel_table
 CREATE TABLE channel_table (
