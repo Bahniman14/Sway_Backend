@@ -13,7 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 # Path to SQLite database file
-DB_FILE = "mydatabase.db"
+DB_FILE = "mydatabase.db" #databaseURL
 
 # Create connection to SQLite database
 conn = create_connection(DB_FILE)

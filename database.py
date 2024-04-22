@@ -407,3 +407,40 @@ def comment_dislike(conn, comment_dislike_input):
     except Exception as e:
         return {"error": str(e)}
 
+# responce:
+# 3.
+def retrun_profile(conn, user_id):
+    profile_data = {}
+
+    try:
+        # Create a cursor object to execute SQL queries
+        cursor = conn.cursor()
+
+        # Execute SQL query to fetch profile data based on user_id
+        cursor.execute("SELECT username, photoURL, about_me FROM user_table WHERE user_id=?", (user_id,))
+
+        # Fetch the profile data
+        profile_row = cursor.fetchone()
+
+        if profile_row:
+            # Extract profile information
+            username, photoURL, about_me = profile_row
+            
+            # Assign profile data to the dictionary
+            profile_data["User_name"] = username
+            profile_data["Photo_URL"] = photoURL
+            profile_data["About"] = about_me
+        else:
+            # If no profile data found, return None
+            return None
+
+    except Exception as e:
+        # Print any errors that occur during database query
+        print(f"Error fetching profile data: {e}")
+        return None
+
+    finally:
+        # Close the cursor
+        cursor.close()
+
+    return profile_data
