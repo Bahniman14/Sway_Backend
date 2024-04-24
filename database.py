@@ -15,6 +15,10 @@ def create_connection(db_file):
 # 1.
 def create_poll(conn, create_poll_input):
     # Extract data from the poll_data object
+    import datetime
+
+def create_poll(conn, create_poll_input):
+    # Extract data from the poll_data object
     user_id = create_poll_input.user_id
     poll_id = create_poll_input.poll_id
     question = create_poll_input.question
@@ -30,6 +34,9 @@ def create_poll(conn, create_poll_input):
     created_date = create_poll_input.created_date
     created_time = create_poll_input.created_time
 
+    # Convert created_time to a string representation
+    created_time_str = created_time.strftime('%H:%M:%S')
+
     # Calculate days_ago
     days_ago = (datetime.date.today() - created_date).days
 
@@ -40,7 +47,7 @@ def create_poll(conn, create_poll_input):
         INSERT INTO poll_table (poll_id, question, options, tags, user_created, created_date, created_time, days_ago)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """,
-        (poll_id, question, f"{option_id1},{option_id2},{option_id3},{option_id4}", tags, user_id, created_date, created_time, days_ago)
+        (poll_id, question, f"{option_id1},{option_id2},{option_id3},{option_id4}", tags, user_id, created_date, created_time_str, days_ago)
     )
     conn.commit()
     cursor.close()
@@ -62,7 +69,7 @@ def create_poll(conn, create_poll_input):
     cursor = conn.cursor()
     cursor.execute(
         """
-        INSERT INTO option_table (option_id, option)
+        INSERT INTO option_table (option_id, options)
         VALUES (?, ?), (?, ?), (?, ?), (?, ?)
         """,
         (option_id1, option1, option_id2, option2, option_id3, option3, option_id4, option4)
@@ -71,6 +78,7 @@ def create_poll(conn, create_poll_input):
     cursor.close()
 
     return {"message": "Poll created successfully"}
+
 
 # 2.
 def create_channel(conn, create_channel_input):
@@ -291,7 +299,7 @@ def follow(conn, follow_input):
     return {"message": f"User {user_id1} is now following User {user_id2}"}
 
 # 9.
-def Sway(conn, sway_input):
+def sway(conn, sway_input):
     poll_id = sway_input.poll_id
     option_id = sway_input.option_id
 
@@ -409,7 +417,7 @@ def comment_dislike(conn, comment_dislike_input):
 
 # responce:
 # 3.
-def retrun_profile(conn, user_id):
+def return_profile(conn, user_id):
     profile_data = {}
 
     try:
@@ -425,11 +433,11 @@ def retrun_profile(conn, user_id):
         if profile_row:
             # Extract profile information
             username, photoURL, about_me = profile_row
-            
+
             # Assign profile data to the dictionary
-            profile_data["User_name"] = username
-            profile_data["Photo_URL"] = photoURL
-            profile_data["About"] = about_me
+            profile_data["username"] = username
+            profile_data["photoURL"] = photoURL
+            profile_data["about_me"] = about_me
         else:
             # If no profile data found, return None
             return None
@@ -440,7 +448,10 @@ def retrun_profile(conn, user_id):
         return None
 
     finally:
-        # Close the cursor
-        cursor.close()
+        # Close the cursor and the connection
+        if 'cursor' in locals() and cursor:
+            cursor.close()
+        if 'conn' in locals() and conn:
+            conn.close()
 
     return profile_data

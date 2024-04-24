@@ -4,6 +4,7 @@ from response import app as response_app
 from fastapi.middleware.cors import CORSMiddleware
 from App import app
 from database import create_connection
+from connection import conn
 
 app.add_middleware(
     CORSMiddleware,
@@ -12,15 +13,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Path to SQLite database file
-DB_FILE = "mydatabase.db" #databaseURL
 
-# Create connection to SQLite database
-conn = create_connection(DB_FILE)
-
-if conn is None:
-    print("Error: Unable to connect to the database.")
-    exit()
 
 if __name__ == "__main__":
     import uvicorn

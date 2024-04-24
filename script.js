@@ -334,6 +334,7 @@ async function Comment_Dislike(){
 async function Profile() {
     const profile_input = document.getElementById('profile_input').value;
     console.log(profile_input);
+    console.log(typeof(profile_input));
     try {
         const response = await fetch(`${baseApiUrl}/Profile?user_id=${profile_input}`, {
             method: 'GET',
@@ -351,17 +352,11 @@ async function Profile() {
         const profile_response_photoURL = document.getElementById('profile_response_photoURL');
         const profile_response_about = document.getElementById('profile_response_about');
 
-        profile_response_username.innerHTML = responseData.username;
-        profile_response_photoURL.innerHTML = responseData.photoURL;
-        profile_response_about.innerHTML = responseData.about;
+        profile_response_username.innerText = responseData.username;
+        profile_response_photoURL.innerText = responseData.photoURL;
+        profile_response_about.innerText = responseData.about_me;
 
     } catch (error) {
         console.error('Error fetching profile data:', error);
     }
 }
-
-
-
-
-
-
