@@ -3,7 +3,7 @@ from update import app as update_app
 from response import app as response_app
 from fastapi.middleware.cors import CORSMiddleware
 from App import app
-from database import create_connection
+# from database import create_connection
 from connection import conn
 
 app.add_middleware(

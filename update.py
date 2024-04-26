@@ -2,7 +2,7 @@ from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 from datetime import date, time
 from App import app
-from database import create_connection, create_poll, create_channel, create_profile, upvote, downvote, comment, edit_profile, follow, sway, subscribe_channel, comment_like, comment_dislike
+from database import create_poll, create_channel, create_profile, upvote, downvote, comment, edit_profile, follow, sway, subscribe_channel, comment_like, comment_dislike
 # (import all the functions), call them in different post methods 
 from connection import conn
 

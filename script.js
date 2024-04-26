@@ -348,6 +348,7 @@ async function Profile() {
         }
 
         const responseData = await response.json();
+        console.log(responseData)
         const profile_response_username = document.getElementById('profile_response_username');
         const profile_response_photoURL = document.getElementById('profile_response_photoURL');
         const profile_response_about = document.getElementById('profile_response_about');

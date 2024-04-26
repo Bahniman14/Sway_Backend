@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from App import app
 from connection import conn
 # app = FastAPI()
-from database import create_connection, return_profile
+from database import return_profile
 router = APIRouter()
 
 @router.get("/Profile")

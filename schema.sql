@@ -59,7 +59,9 @@ CREATE TABLE user_table (
 CREATE TABLE organization_table(
     organization_id TEXT PRIMARY KEY,
     organization_name TEXT,
-    organization_type TEXT,
+    organization_size INTEGER,
+    organization_type TEXT DEFAULT 'Startup',
+    organization_email TEXT,
     org_location TEXT,
     channels_created TEXT, -- Comma-separated text containing channel_ids
     channel_subscribed TEXT, -- Comma-separated text containing subscribed channel_ids
