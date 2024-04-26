@@ -1,4 +1,5 @@
-const baseApiUrl = 'http://127.0.0.1:8000'; //URL where backend is running
+const baseApiUrl = 'https://sway-backend-6j6f.onrender.com';
+//URL where backend is running
 // Update:
 // 1
 async function Create_Poll(){
